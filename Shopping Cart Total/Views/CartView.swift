@@ -18,6 +18,9 @@ struct CartView: View {
     @State var givenInput2 = ""
     @State var givenInput3 = ""
     
+    // Feedback to the user on what to try next
+    @State var feedback = ""
+    
     
     
     
@@ -29,12 +32,34 @@ struct CartView: View {
             TextField("Price for your product", text: $givenInput2)
             TextField("Price for your product", text: $givenInput3)
             
+            Button {
+                checkTotalPrice()
+            } label: {
+                Text("Check Total Price")
+            }
+            .buttonStyle(.borderedProminent)
+            
+            
+            
+            
+            
+            
+        }
+    }
+    
+    func checkTotalPrice() {
+        
+        // Attempt to unwrap the input provided by the user
+        guard let ProvidedNumber = Double(givenInput1) else {
+            feedback = "Please provide an Double."
+            return
         }
         
         
     }
 }
-
+                
+                
 #Preview {
     CartView()
 }
