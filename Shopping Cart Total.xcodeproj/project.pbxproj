@@ -6,17 +6,20 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		AF26EF042D3E95A7009E244F /* CartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF26EF012D3E95A7009E244F /* CartView.swift */; };
+		AF26EF052D3E95A7009E244F /* Shopping_Cart_TotalApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF26EF022D3E95A7009E244F /* Shopping_Cart_TotalApp.swift */; };
+		AF26EF062D3E95A7009E244F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AF26EEFE2D3E95A7009E244F /* Preview Assets.xcassets */; };
+		AF26EF072D3E95A7009E244F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AF26EF002D3E95A7009E244F /* Assets.xcassets */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		AF26EEED2D3E8ECB009E244F /* Shopping Cart Total.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Shopping Cart Total.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AF26EEFE2D3E95A7009E244F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		AF26EF002D3E95A7009E244F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		AF26EF012D3E95A7009E244F /* CartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartView.swift; sourceTree = "<group>"; };
+		AF26EF022D3E95A7009E244F /* Shopping_Cart_TotalApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shopping_Cart_TotalApp.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
-
-/* Begin PBXFileSystemSynchronizedRootGroup section */
-		AF26EEEF2D3E8ECB009E244F /* Shopping Cart Total */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = "Shopping Cart Total";
-			sourceTree = "<group>";
-		};
-/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		AF26EEEA2D3E8ECB009E244F /* Frameworks */ = {
@@ -32,7 +35,7 @@
 		AF26EEE42D3E8ECB009E244F = {
 			isa = PBXGroup;
 			children = (
-				AF26EEEF2D3E8ECB009E244F /* Shopping Cart Total */,
+				AF26EF032D3E95A7009E244F /* Shopping Cart Total */,
 				AF26EEEE2D3E8ECB009E244F /* Products */,
 			);
 			sourceTree = "<group>";
@@ -43,6 +46,33 @@
 				AF26EEED2D3E8ECB009E244F /* Shopping Cart Total.app */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		AF26EEFF2D3E95A7009E244F /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				AF26EEFE2D3E95A7009E244F /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		AF26EF032D3E95A7009E244F /* Shopping Cart Total */ = {
+			isa = PBXGroup;
+			children = (
+				AF26EF022D3E95A7009E244F /* Shopping_Cart_TotalApp.swift */,
+				AF26EF082D3E95B2009E244F /* Views */,
+				AF26EEFF2D3E95A7009E244F /* Preview Content */,
+				AF26EF002D3E95A7009E244F /* Assets.xcassets */,
+			);
+			path = "Shopping Cart Total";
+			sourceTree = "<group>";
+		};
+		AF26EF082D3E95B2009E244F /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				AF26EF012D3E95A7009E244F /* CartView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -59,9 +89,6 @@
 			buildRules = (
 			);
 			dependencies = (
-			);
-			fileSystemSynchronizedGroups = (
-				AF26EEEF2D3E8ECB009E244F /* Shopping Cart Total */,
 			);
 			name = "Shopping Cart Total";
 			packageProductDependencies = (
@@ -109,6 +136,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AF26EF062D3E95A7009E244F /* Preview Assets.xcassets in Resources */,
+				AF26EF072D3E95A7009E244F /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -119,6 +148,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AF26EF042D3E95A7009E244F /* CartView.swift in Sources */,
+				AF26EF052D3E95A7009E244F /* Shopping_Cart_TotalApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
