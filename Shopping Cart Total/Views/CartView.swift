@@ -32,33 +32,54 @@ struct CartView: View {
     
     var body: some View {
         NavigationStack {
-            
-            VStack{
-                VStack{
+         
+            VStack(alignment: .leading) {
+                VStack(alignment: .leading) {
                     Text("Inter your first Item price")
-                        .font(Font.system(size:20))
+                        .font(Font.system(size: 20))
                         .multilineTextAlignment(.leading)
                     TextField("Price for your product", text: $givenInput1)
                 }
-                VStack{
+                VStack(alignment: .leading) {
                     Text("Inter your Second Item price")
-                            .font(Font.system(size:20))
-                            .multilineTextAlignment(.leading)
-                        TextField("Price for your product", text: $givenInput2)
+                        .font(Font.system(size: 20))
+                        .multilineTextAlignment(.leading)
+                    TextField("Price for your product", text: $givenInput2)
                 }
-                VStack{
+                VStack(alignment: .leading) {
                     Text("Inter your Third Item price")
-                            .font(Font.system(size:20))
-                            .multilineTextAlignment(.leading)
-                        TextField("Price for your product", text: $givenInput3)
+                        .font(Font.system(size: 20))
+                        .multilineTextAlignment(.leading)
+                    TextField("Price for your product", text: $givenInput3)
                 }
             }
-            Button {
-                checkTotalPrice()
-            } label: {
-                Text("Check Total Price")
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .padding()
+            HStack{
+                Button {
+                    checkTotalPrice()
+                } label: {
+                    Text("Check Total Price/Tax")
+                        .font(Font.system(size:15))
+                    
+                }
+                .padding()
+                .foregroundStyle(.white)
+                .background(Color.blue)
+                .clipShape(RoundedRectangle(cornerRadius: 8))
+                
+                Button {
+                    reset()
+                } label: {
+                    Text("Reset")
+                        .font(Font.system(size:15))
+                }
+                .padding()
+                .foregroundStyle(.white)
+                .background(Color.red)
+                .clipShape(RoundedRectangle(cornerRadius: 8))
             }
-            .buttonStyle(.borderedProminent)
+            
             
             VStack{
                 Text(feedback)
@@ -124,8 +145,9 @@ struct CartView: View {
         feedback2 = "The total tax is $\(totalTax)"
     }
 }
-                
-                
+      func reset(){
+    
+      }
 #Preview {
     CartView()
 }
