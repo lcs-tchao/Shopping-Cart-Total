@@ -110,6 +110,7 @@ struct CartView: View {
            
             
         }
+    
         
     }
     
@@ -143,6 +144,7 @@ struct CartView: View {
         
         // feedback for the Tax
         feedback2 = "The total tax is $\(totalTax)"
+          
     }
 }
       func reset(){
