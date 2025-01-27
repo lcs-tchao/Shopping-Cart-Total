@@ -15,7 +15,7 @@ struct CartView: View {
     @State var secondNumber = 10.0
     @State var thirdNumber = 30.0
     let tax = 0.13
-
+    
     @State var givenInput1 = ""
     @State var givenInput2 = ""
     @State var givenInput3 = ""
@@ -24,30 +24,39 @@ struct CartView: View {
     @State var feedback = ""
     @State var feedback2 = ""
     
-    //computed properties
+    // History of calculations
+     @State var calculationHistory: [String] = []
     
-   
+    
     
     
     
     var body: some View {
         NavigationStack {
-         
             VStack(alignment: .leading) {
+                Text("Use this app to calculated your item total Price and Tax")
+                    .font(
+                        .custom(
+                            "BradleyHandITCTT-Bold",
+                            size: 30.0,
+                            relativeTo: .title3
+                        )
+                    )
+                    .padding()
                 VStack(alignment: .leading) {
-                    Text("Inter your first Item price")
+                    Text("Enter your first Item price")
                         .font(Font.system(size: 20))
                         .multilineTextAlignment(.leading)
                     TextField("Price for your product", text: $givenInput1)
                 }
                 VStack(alignment: .leading) {
-                    Text("Inter your Second Item price")
+                    Text("Enter your Second Item price")
                         .font(Font.system(size: 20))
                         .multilineTextAlignment(.leading)
                     TextField("Price for your product", text: $givenInput2)
                 }
                 VStack(alignment: .leading) {
-                    Text("Inter your Third Item price")
+                    Text("Enter your Third Item price")
                         .font(Font.system(size: 20))
                         .multilineTextAlignment(.leading)
                     TextField("Price for your product", text: $givenInput3)
@@ -55,13 +64,13 @@ struct CartView: View {
             }
             .frame(maxWidth: .infinity, alignment: .leading)
             .padding()
-            HStack{
+            
+            HStack {
                 Button {
                     checkTotalPrice()
                 } label: {
                     Text("Check Total Price/Tax")
-                        .font(Font.system(size:15))
-                    
+                        .font(Font.system(size: 15))
                 }
                 .padding()
                 .foregroundStyle(.white)
@@ -69,10 +78,10 @@ struct CartView: View {
                 .clipShape(RoundedRectangle(cornerRadius: 8))
                 
                 Button {
-                    reset()
+                    calculationHistory.removeAll()
                 } label: {
                     Text("Reset")
-                        .font(Font.system(size:15))
+                        .font(Font.system(size: 15))
                 }
                 .padding()
                 .foregroundStyle(.white)
@@ -80,8 +89,7 @@ struct CartView: View {
                 .clipShape(RoundedRectangle(cornerRadius: 8))
             }
             
-            
-            VStack{
+            VStack {
                 Text(feedback)
                     .font(
                         .custom(
@@ -100,19 +108,18 @@ struct CartView: View {
                     )
             }
             
+        
+            
+                       
             
             
-            
-            
-                
-            
-            
-           
-            
+                .navigationTitle("Price/Tax Calculator")
+            Spacer()
         }
-    
+        
         
     }
+    
     
     func checkTotalPrice() {
         // Attempt to unwrap the first input provided by the user
@@ -120,36 +127,55 @@ struct CartView: View {
             feedback = "Please provide a Double for the Item."
             return
         }
-
+        
         // Attempt to unwrap the second input provided by the user
         guard let secondInput = Double(givenInput2) else {
             feedback = "Please provide a Double for the Item."
             return
         }
-
+        
         // Attempt to unwrap the third input provided by the user
         guard let thirdInput = Double(givenInput3) else {
             feedback = "Please provide a Double for the Item."
             return
         }
-
+        
         // Calculate the total price
         let totalPrice = firstInput + secondInput + thirdInput
-
+        
         // Calculate the total Tax
         let totalTax = (firstInput * tax) + (secondInput * tax) + ( thirdInput * tax)
+        
+        // Format the total price and total tax to 2 decimal places
+         let formattedTotalPrice = String(format: "%.2f", totalPrice)
+         let formattedTotalTax = String(format: "%.2f", totalTax)
+        
+        // Create a history entry string
+        let historyEntry = "Price: $\(formattedTotalPrice), Tax: $\(formattedTotalTax)"
+        
+        // Append the history entry to the calculation history
+        calculationHistory.append(historyEntry)
+        
         
         // Update the feedback
         feedback = "The total price is $\(totalPrice)"
         
         // feedback for the Tax
         feedback2 = "The total tax is $\(totalTax)"
-          
+        
+    }
+    
+    func reset() {
+        // Reset the text fields
+        givenInput1 = ""
+        givenInput2 = ""
+        givenInput3 = ""
+        
+        // Reset feedback messages
+        feedback = ""
+        feedback2 = ""
     }
 }
-      func reset(){
-    
-      }
 #Preview {
     CartView()
 }
