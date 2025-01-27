@@ -16,6 +16,8 @@ struct CartView: View {
     @State var thirdNumber = 30.0
     let tax = 0.13
     
+    
+    
     @State var givenInput1 = ""
     @State var givenInput2 = ""
     @State var givenInput3 = ""
@@ -38,8 +40,7 @@ struct CartView: View {
                     .font(
                         .custom(
                             "BradleyHandITCTT-Bold",
-                            size: 30.0,
-                            relativeTo: .title3
+                            size: 30.0
                         )
                     )
                     .padding()
@@ -94,21 +95,38 @@ struct CartView: View {
                     .font(
                         .custom(
                             "BradleyHandITCTT-Bold",
-                            size: 25.0,
-                            relativeTo: .title3
+                            size: 25.0
+                            
                         )
                     )
                 Text(feedback2)
                     .font(
                         .custom(
                             "BradleyHandITCTT-Bold",
-                            size: 25.0,
-                            relativeTo: .title3
+                            size: 25.0
                         )
                     )
             }
             
         
+            Divider()
+                .padding()
+            Text("Calculating History")
+                .font(
+                    .custom(
+                        "BradleyHandITCTT-Bold",
+                        size: 30.0
+                    )
+                )
+            
+            ScrollView {
+                VStack(spacing: 5) {
+                    ForEach(calculationHistory, id: \.self) { currentcalculation in
+                        Text("\(currentcalculation)")
+                        Divider()
+                    }
+                }
+            }
             
                        
             
@@ -142,13 +160,16 @@ struct CartView: View {
         
         // Calculate the total price
         let totalPrice = firstInput + secondInput + thirdInput
-        
+            
+
         // Calculate the total Tax
         let totalTax = (firstInput * tax) + (secondInput * tax) + ( thirdInput * tax)
+            
         
         // Format the total price and total tax to 2 decimal places
-         let formattedTotalPrice = String(format: "%.2f", totalPrice)
-         let formattedTotalTax = String(format: "%.2f", totalTax)
+         let formattedTotalPrice = String(totalPrice)
+         let formattedTotalTax = String(totalTax)
+            
         
         // Create a history entry string
         let historyEntry = "Price: $\(formattedTotalPrice), Tax: $\(formattedTotalTax)"
