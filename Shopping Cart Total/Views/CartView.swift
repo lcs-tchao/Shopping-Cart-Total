@@ -167,8 +167,8 @@ struct CartView: View {
             
         
         // Format the total price and total tax to 2 decimal places
-         let formattedTotalPrice = String(totalPrice)
-         let formattedTotalTax = String(totalTax)
+    let formattedTotalPrice = totalPrice.formatted(.currency(code: "CAD"))
+    let formattedTotalTax = totalTax.formatted(.currency(code: "CAD"))
             
         
         // Create a history entry string
@@ -179,10 +179,11 @@ struct CartView: View {
         
         
         // Update the feedback
-        feedback = "The total price is $\(totalPrice)"
+        feedback = "The total price is $\(formattedTotalPrice)"
         
+
         // feedback for the Tax
-        feedback2 = "The total tax is $\(totalTax)"
+        feedback2 = "The total tax is $\(formattedTotalTax )"
         
     }
     
